@@ -1,0 +1,33 @@
+{
+    "name": "Act It Out",
+    "short_name": "ActItOut",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#f0e68c",
+    "theme_color": "#f0e68c",
+    "orientation": "portrait-primary",
+    "form_factor": "mobile",
+    "icons": [
+        {"src": "/img/icon/i1.png",
+        "type": "image/png",
+        "sizes": "72x72"},
+        {"src": "/img/icon/i2.png",
+        "type": "image/png",
+        "sizes": "126x126"},
+        {"src": "/img/icon/i3.png",
+         "type": "image/png",
+         "sizes": "301x301"},
+         {"src": "/img/icon/i4.png",
+         "type": "image/png",
+         "sizes": "509x510"},
+         {"src": "/img/icon/i5.png",
+         "type": "image/png",
+         "sizes": "512x512"},
+         {"src": "/img/icon/i6.png",
+         "type": "image/png",
+         "sizes": "192x192"}
+
+        
+        
+    ]
+}
