@@ -21,14 +21,11 @@ Element.prototype.createElem = function (type, attrs, parent, quan) {
             }
 
         });
-        // elem.setAttribute(attr, attrVal);
-        console.log(elem)
-        console.log(parent)
+        
+      
 
-
-        console.log(parent)
     }
 
-    return elem
+  
 }
 

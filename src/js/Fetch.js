@@ -1,23 +1,31 @@
+/**
+ * 
+ * Fetch klassen
+ */
 function Fetch() {
 
     this.m_construct()
 
-    // helpBtn.setAttribute("disabled", "true")
 }
 
-// Fetch.prototype = Object.create(Game.prototype);
-// Fetch.prototype.constructor = Fetch;
+Fetch.prototype = Object.create(Game.prototype);
+Fetch.prototype.constructor = Fetch;
 
 Fetch.prototype.m_construct = function () {
 
 }
-
+/**
+ * 
+ * @param {HTMLElement} helpBtn 
+ * @param {array} array
+ * @param {HTMLElement} input 
+ * @param {object} _Game 
+ * 
+ * Fetcher ett slumpmässigt ord för varje tumt inputfält, avaktiverar helpBtn under fetch tiden så att användaren inte ska kunna göra mer än en begäran samtidigt, pushar ordet till arr och sist anropar metoden m_address
+ */
 Fetch.prototype.fetch = function (helpBtn, array, input, _Game) {
-
     var _Fetch = this;
-   
-   //var alertBox = false;
-    
+
     (function () {
         helpBtn.setAttribute("disabled", "true")
         input.setAttribute("placeholder", "Loading..")
@@ -48,23 +56,27 @@ Fetch.prototype.fetch = function (helpBtn, array, input, _Game) {
             )
         // .catch(function (error) {
         //     console.error('Error:', error);
-        
+
         // });
     })();
-    //return array;
+
 
 }
-// Fetch.prototype = Object.create(Game.prototype); }
-// Fetch.prototype.constructor = Fetch;             } Om de här radarn är här loggar konsolen 'this.body is undefined  'Game.js:..:..' '
-
+/**
+ * 
+ * @param {array} array 
+ * @param {HTMLElement} helpBtn 
+ * @param {object} _Game 
+ * 
+ * kontrollera om array.length är lika med 5, vilket är samma array som _Game.arr, om sant sätter variabeln ready till true och skickar den som parameter när controllInput anropas
+ */
 Fetch.prototype.m_address = function (array, helpBtn, _Game) {
-
-    // console.log(_Game)
     if (array.length === 5) {
         var ready = true;
         helpBtn.removeAttribute("disabled")
         helpBtn.innerHTML = "Rotate your phone to start";
-        _Game.controllInput(ready);
+        this.controllInput(ready, _Game)
+        // _Game.controllInput(ready);
     }
 
 }

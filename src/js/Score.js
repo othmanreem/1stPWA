@@ -1,47 +1,59 @@
+/**
+ * 
+ * Score klassen
+ * 
+ * @param {number} score // publik egenskap innehållande antal poäng
+ * @param {HTMLElement} body //publik egenskap som representerar ett div element
+ *
+ */
 function Score(score, body) {
-
-    var _Score = this;
     this.score = score;
     this.body = body;
 
+    this.getScore(this.body, this.score)
+
+}
+/**
+ * 
+ */
+Score.prototype.construct = function () {
+
+}
+/**
+ * 
+ * @param {HTMLElement} body 
+ * @param {number} score 
+ * 
+ * Skapar ett div element för att visa poäng och en knap för att laddaom sidan och på så sätt för användaren starta en till spel omgång
+ */
+Score.prototype.getScore = function (body, score) {
     var scoreDiv = document.createElement("div");
+    var altName;
+    // anger default team namn i fall det händer så att användaren spelar och mitt i spelet filler teamName i localStorage 15 dagar och tas bort. För att inte skriva ut "null" helt enkelt
+    if (score < 3) {
+        altName = 'Losers'
+    } else if (score >= 3) {
+        altName = 'Legends'
+    }
+
     var teamName = localStorage.getItem("teamName");
     scoreDiv.setAttribute("id", "score");
-    this.body.appendChild(scoreDiv);
-    scoreDiv.innerHTML = 'Team ' + teamName + '<br>' + ' your Score is ' + this.score;
-
+    body.appendChild(scoreDiv);
+    scoreDiv.innerHTML = 'Team ' + (teamName || altName) + '<br>' + ' your Score is ' + score;
 
     var killRound = document.createElement("button");
     killRound.innerHTML = "One more Round";
     killRound.setAttribute("id", "one_more_round_btn")
-    this.body.appendChild(killRound);
+    body.appendChild(killRound);
 
     killRound.addEventListener("click", function () {
 
-
         window.location.reload();
-
-        
-        // Main.call(_Score);
-        // console.log(_Score.arr)
-
-
-        //_Score.cleanArr();
-        //window.location("index.html")
-        // var OneMoreRoun = new Main();
     })
 
-
-}
-
-// Score.prototype = Object.create(Main.prototype);
-// Score.prototype.constructor = Score;
-Score.prototype.construct = function (_Game) {
-    //console.log(_Game) // 
-    //console.log(this) //hur är 'th
-    Score.prototype.reachCleanArr.call(_Game);
-}
-
-Score.prototype.reachCleanArr = function () {
+    // window.addEventListener("beforeunload", function(e){
+    // e.preventDefault();
+    //     localStorage.clear();
+    // })
 
 }

@@ -5,7 +5,6 @@ var resources = [
     "/src/css/style.css",
     "/src/js/Main.js",
     "/src/js/Game.js",
-    "/src/js/Element.js",
     "/src/js/Events.js",
     "/src/js/CountDown.js",
     "/src/js/Round.js",
@@ -31,7 +30,7 @@ self.addEventListener("install", function(event){
 self.addEventListener("activate", function (event){
     console.log('sw active');
 })
-//
+
 self.addEventListener("fetch", function (event){
   //console.log('sw fetches', event);
   event.respondWith(
